@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".login">
 
+    <data>
+        <variable
+            name="loginViewModel"
+            type="mobg5.g55315.project1.screens.login.LoginViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,18 +34,19 @@
             android:layout_marginStart="@dimen/margin_wide"
             android:fontFamily="@font/roboto"
             android:text="@string/email"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextEmailAddress"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextEmailAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextEmailAddress" />
+            app:layout_constraintTop_toTopOf="@+id/editTextEmailAddress" />
 
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
+        <AutoCompleteTextView
+            android:id="@+id/editTextEmailAddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_wide"
             android:layout_marginTop="@dimen/margin_wide"
             android:layout_marginEnd="@dimen/margin_wide"
             android:layout_marginBottom="@dimen/margin_wide"
+            android:text="@={loginViewModel.email}"
             android:ems="10"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@+id/connectButton"
@@ -55,10 +62,11 @@
             android:layout_marginTop="@dimen/margin_wide"
             android:layout_marginBottom="@dimen/margin_wide"
             android:text="@string/connect"
+            android:onClick="@{() -> loginViewModel.onClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

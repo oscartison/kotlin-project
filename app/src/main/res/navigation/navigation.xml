@@ -6,12 +6,12 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="mobg5.g55315.project1.LoginFragment"
+        android:name="mobg5.g55315.project1.screens.login.LoginFragment"
         android:label="@string/login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="mobg5.g55315.project1.AboutFragment"
+        android:name="mobg5.g55315.project1.screens.about.AboutFragment"
         android:label="@string/about"
         tools:layout="@layout/fragment_about" />
 </navigation>
