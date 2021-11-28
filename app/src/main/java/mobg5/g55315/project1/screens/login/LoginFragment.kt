@@ -1,11 +1,13 @@
 package mobg5.g55315.project1.screens.login
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -16,6 +18,12 @@ import androidx.lifecycle.ViewModelProvider
 import mobg5.g55315.project1.R
 import mobg5.g55315.project1.database.EmailDatabase
 import mobg5.g55315.project1.databinding.FragmentLoginBinding
+import android.content.Context.INPUT_METHOD_SERVICE
+
+import androidx.core.content.ContextCompat.getSystemService
+
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 
 
 /**
@@ -75,7 +83,7 @@ class LoginFragment : Fragment() {
 
         })
 
-        // Inflate the layout for this fragment
+                // Inflate the layout for this fragment
         return binding.root
 
     }
