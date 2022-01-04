@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="event"
+            type="mobg5.g55315.project1.model.Event" />
+
+        <variable
+            name="clickListener"
+            type="mobg5.g55315.project1.screens.events.event.EventListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> clickListener.onClick(event)}"
+        android:orientation="vertical"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:eventImage="@{event}" />
+
+            <TextView
+                android:id="@+id/event_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_toRightOf="@+id/img"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:eventName="@{event}" />
+
+            <TextView
+                android:id="@+id/event_team"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_name"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/img"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:eventTeam="@{event}" />
+
+            <TextView
+                android:id="@+id/event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_team"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/img"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:eventDate="@{event}" />
+
+            <TextView
+                android:id="@+id/event_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_date"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/img"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:eventTime="@{event}" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

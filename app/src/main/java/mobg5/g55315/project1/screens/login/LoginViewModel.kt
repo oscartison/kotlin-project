@@ -4,7 +4,10 @@ import android.app.Application
 import android.os.Build
 import android.util.Patterns
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import mobg5.g55315.project1.database.EmailDatabaseDao
 import mobg5.g55315.project1.model.User
@@ -14,7 +17,8 @@ import java.time.format.DateTimeFormatter
 
 class LoginViewModel(
     val database: EmailDatabaseDao,
-    application: Application) : AndroidViewModel(application) {
+    application: Application
+) : AndroidViewModel(application) {
 
     private val _statusToast = MutableLiveData<Boolean?>()
     val statusToast: MutableLiveData<Boolean?>
@@ -31,7 +35,7 @@ class LoginViewModel(
     }
 
     fun isFormValid(): Boolean {
-        return email.value != null && Patterns.EMAIL_ADDRESS.matcher(email.value).matches()
+        return email.value != null && Patterns.EMAIL_ADDRESS.matcher(email.value!!).matches()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -44,7 +48,7 @@ class LoginViewModel(
             val formattedHour = current.format(formatHour)
             val existingUser = email.value?.let { get(it) }
 
-            if(existingUser!=null) {
+            if (existingUser != null) {
                 val user = email.value?.let { User(it, formatted, formattedHour) }
                 if (user != null) {
                     update(user)
@@ -72,7 +76,7 @@ class LoginViewModel(
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun onClick() {
-        if(isFormValid()) {
+        if (isFormValid()) {
             statusToast.value = true
             addToDB()
         } else {

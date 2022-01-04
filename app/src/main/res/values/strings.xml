@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project1</string>
+    <string name="app_name">Team Maker</string>
     <string name="connect_string">Please enter your email address</string>
     <string name="email">E-mail</string>
     <string name="connect">Login</string>
@@ -7,4 +7,25 @@
     <string name="number">55315</string>
     <string name="about">About</string>
     <string name="login">Login</string>
+    <string name="event">Event</string>
+    <string name="close">Close</string>
+    <string name="create">Create new game</string>
+    <string name="label_name">Name</string>
+    <string name="label_address">Address</string>
+    <string name="label_date">Date</string>
+    <string name="label_time">Time</string>
+    <string name="create_team">Create new team</string>
+    <string name="create_event">Create</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="past">Past</string>
+    <string name="team">Team</string>
+    <string name="name_string">Name</string>
+    <string name="add">Add</string>
+    <string name="picture_event">picture event</string>
+    <string name="delete">Delete</string>
+    <string name="categories">Categories</string>
+    <string name="teams">Teams</string>
+    <string name="sign_out">Sign out</string>
+    <string name="games">Games</string>
+    <string name="game">Game</string>
 </resources>

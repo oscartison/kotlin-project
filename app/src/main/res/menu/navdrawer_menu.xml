@@ -3,11 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/eventFragment"
+        android:icon="@drawable/ic_to_do"
+        android:title="@string/games" />
+    <item
+        android:id="@+id/teamFragment"
+        android:icon="@drawable/group"
+        android:title="@string/teams" />
+    <item
         android:id="@+id/aboutFragment"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/about" />
     <item
-        android:id="@+id/loginFragment"
-        android:icon="@android:drawable/ic_secure"
-        android:title="@string/connect" />
+        android:id="@+id/menu_sign_out"
+        android:title="@string/sign_out"
+        android:icon="@drawable/logout"/>
+
 </menu>

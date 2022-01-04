@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "228763564284",
+    "firebase_url": "https://teammaker-9e041-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "teammaker-9e041",
+    "storage_bucket": "teammaker-9e041.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228763564284:android:321374e8c8837ceca3ff79",
+        "android_client_info": {
+          "package_name": "mobg5.g55315.project1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228763564284-jte5cpouaghks0u9bd37mdhd4ce717aj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_eIzAA_UMwRnug_yxH1nVMyf3Is8Pbm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228763564284-jte5cpouaghks0u9bd37mdhd4ce717aj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228763564284:android:31f441d427a16f63a3ff79",
+        "android_client_info": {
+          "package_name": "mobg5.g55315.project1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228763564284-jte5cpouaghks0u9bd37mdhd4ce717aj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_eIzAA_UMwRnug_yxH1nVMyf3Is8Pbm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228763564284-jte5cpouaghks0u9bd37mdhd4ce717aj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

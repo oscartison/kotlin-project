@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="person"
+            type="mobg5.g55315.project1.model.Person" />
+
+        <variable
+            name="event"
+            type="mobg5.g55315.project1.model.Event" />
+
+        <variable
+            name="clickListener"
+            type="mobg5.g55315.project1.screens.events.eventdetail.PersonListener" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:onClick="@{() -> clickListener.onClick(person)}"
+        app:eventColor="@{event}"
+        app:personColor="@{person}">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="45dp"
+                android:layout_height="43dp"
+                android:layout_marginEnd="8dp"
+                app:srcCompat="@drawable/fui_ic_anonymous_white_24dp" />
+
+            <TextView
+                android:id="@+id/participant_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/image_view"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:participantName="@{person}" />
+
+            <TextView
+                android:id="@+id/participant_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/participant_name"
+                android:layout_toEndOf="@id/image_view"
+                app:participantEmail="@{person}" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

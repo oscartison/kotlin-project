@@ -3,15 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/loginFragment">
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="mobg5.g55315.project1.screens.login.LoginFragment"
-        android:label="@string/login"
-        tools:layout="@layout/fragment_login" />
+    app:startDestination="@id/eventFragment">
     <fragment
         android:id="@+id/aboutFragment"
         android:name="mobg5.g55315.project1.screens.about.AboutFragment"
         android:label="@string/about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="mobg5.g55315.project1.screens.events.event.EventFragment"
+        android:label="@string/games">
+        <action
+            android:id="@+id/action_eventFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_eventCreateFragment"
+            app:destination="@id/eventCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="mobg5.g55315.project1.screens.events.eventdetail.EventDetailFragment"
+        android:label="@string/game">
+        <argument
+            android:name="eventKey"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_eventDetailFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventCreateFragment"
+        android:name="mobg5.g55315.project1.screens.events.eventcreate.EventCreateFragment"
+        android:label="@string/create">
+        <action
+            android:id="@+id/action_eventCreateFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="mobg5.g55315.project1.screens.teams.team.TeamFragment"
+        android:label="@string/teams">
+        <action
+            android:id="@+id/action_teamFragment_to_teamCreateFragment"
+            app:destination="@id/teamCreateFragment" />
+        <action
+            android:id="@+id/action_teamFragment_to_teamDetailFragment"
+            app:destination="@id/teamDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="mobg5.g55315.project1.screens.teams.teamdetail.TeamDetailFragment"
+        android:label="@string/team">
+        <argument
+            android:name="teamKey"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_teamDetailFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamCreateFragment"
+        android:name="mobg5.g55315.project1.screens.teams.teamcreate.TeamCreateFragment"
+        android:label="@string/create">
+        <action
+            android:id="@+id/action_teamCreateFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+    </fragment>
 </navigation>

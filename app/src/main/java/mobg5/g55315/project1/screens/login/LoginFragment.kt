@@ -1,29 +1,20 @@
 package mobg5.g55315.project1.screens.login
 
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import mobg5.g55315.project1.R
 import mobg5.g55315.project1.database.EmailDatabase
 import mobg5.g55315.project1.databinding.FragmentLoginBinding
-import android.content.Context.INPUT_METHOD_SERVICE
-
-import androidx.core.content.ContextCompat.getSystemService
-
-import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat
 
 
 /**
@@ -39,17 +30,17 @@ class LoginFragment : Fragment() {
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-
-
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_login,
             container,
-            false)
+            false
+        )
 
         val application = requireNotNull(this.activity).application
 
@@ -59,15 +50,16 @@ class LoginFragment : Fragment() {
 
         viewModel =
             ViewModelProvider(
-                this, viewModelFactory).get(LoginViewModel::class.java)
+                this, viewModelFactory
+            ).get(LoginViewModel::class.java)
 
         binding.loginViewModel = viewModel
 
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.statusToast.observe(viewLifecycleOwner, Observer  { status ->
+        viewModel.statusToast.observe(viewLifecycleOwner, Observer { status ->
             status?.let {
-                if(viewModel.statusToast.value == true) {
+                if (viewModel.statusToast.value == true) {
                     showToastMail()
                 } else {
                     showFailedEmail()
@@ -77,25 +69,35 @@ class LoginFragment : Fragment() {
             }
         })
 
-        viewModel.emails.observe(viewLifecycleOwner, Observer {
-            emails -> binding.editTextEmailAddress.setAdapter(ArrayAdapter(requireContext(),R.layout.support_simple_spinner_dropdown_item,emails))
+        viewModel.emails.observe(viewLifecycleOwner, Observer { emails ->
+            binding.editTextEmailAddress.setAdapter(
+                ArrayAdapter(
+                    requireContext(),
+                    R.layout.support_simple_spinner_dropdown_item,
+                    emails
+                )
+            )
             binding.editTextEmailAddress.showDropDown()
 
         })
 
-                // Inflate the layout for this fragment
+        // Inflate the layout for this fragment
         return binding.root
 
     }
 
 
     private fun showToastMail() {
-        Toast.makeText(context, "Valid email address",
-            Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context, "Valid email address",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun showFailedEmail() {
-        Toast.makeText(context, "Invalid email address",
-            Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            context, "Invalid email address",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
