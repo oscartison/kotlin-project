@@ -19,14 +19,14 @@
             android:id="@+id/event_image"
             android:layout_width="160dp"
             android:layout_height="98dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/small_padding"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/small_padding"
+            android:contentDescription="@string/picture_event"
             app:eventImage="@{eventDetailViewModel.event}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/picture_event" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/name_string"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="@dimen/big_margin"
             android:onClick="@{() -> eventDetailViewModel.onClose()}"
             android:text="@string/close"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -80,14 +80,14 @@
             android:id="@+id/floatingActionButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/margin_wide"
+            android:layout_marginTop="@dimen/margin_wide"
+            android:contentDescription="@string/delete"
             android:enabled="@{eventDetailViewModel.visible}"
             android:onClick="@{() -> eventDetailViewModel.onDelete()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_delete"
-            android:contentDescription="@string/delete" />
+            app:srcCompat="@android:drawable/ic_menu_delete" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/participant_list"

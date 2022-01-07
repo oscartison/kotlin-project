@@ -1,5 +1,7 @@
 package mobg5.g55315.project1.screens.events.eventdetail
 
+import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +10,7 @@ import mobg5.g55315.project1.model.Event
 import mobg5.g55315.project1.model.Person
 import mobg5.g55315.project1.model.Team
 import mobg5.g55315.project1.util.FirebaseUtil
+import java.io.File
 
 class EventDetailViewModel(
     private val eventKey: String,
@@ -124,5 +127,12 @@ class EventDetailViewModel(
 
     fun onClose() {
         _navigateToEvent.value = true
+    }
+
+    fun uploadImage(absolutePath: String) {
+            val file = Uri.fromFile(File(absolutePath))
+            val storage =
+                FirebaseUtil.getFirestorage()!!.reference.storage.getReference("images/${eventKey}")
+            storage.putFile(file)
     }
 }

@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_wide"
             android:layout_marginEnd="16dp"
             android:hint="@string/categories"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,25 +45,25 @@
                 android:layout_weight="1"
                 android:inputType="none"
                 android:text="@={teamCreateViewModel.teamCategory}"
-                tools:ignore="LabelFor"/>
+                tools:ignore="LabelFor" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/margin_wide"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/margin_wide"
             android:ems="10"
             android:hint="@string/name_string"
+            android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:text="@={teamCreateViewModel.teamName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_create"
-            android:importantForAutofill="no" />
+            app:layout_constraintTop_toBottomOf="@+id/label_create" />
 
         <Button
             android:id="@+id/button2"
@@ -81,6 +81,7 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_wide"
             android:onClick="@{() -> teamCreateViewModel.onClose()}"
             android:text="@string/close"
             app:layout_constraintEnd_toEndOf="parent"

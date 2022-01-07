@@ -1,21 +1,35 @@
 package mobg5.g55315.project1.screens.events.eventdetail
 
+import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_event_creation.*
+import kotlinx.android.synthetic.main.fragment_event_detail.*
 import mobg5.g55315.project1.R
 import mobg5.g55315.project1.databinding.FragmentEventDetailBinding
 import mobg5.g55315.project1.util.FirebaseUtil
+import java.io.File
 
+private const val FILE_NAME = "event_photo"
+private lateinit var photoFile: File
 
 class EventDetailFragment : Fragment() {
+
+    private lateinit var meventDetailViewModel: EventDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +57,7 @@ class EventDetailFragment : Fragment() {
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
         binding.eventDetailViewModel = eventDetailViewModel
+        this.meventDetailViewModel = eventDetailViewModel
 
         eventDetailViewModel.event.observe(viewLifecycleOwner, Observer { event ->
             val adapter =
@@ -60,6 +75,25 @@ class EventDetailFragment : Fragment() {
                 }
             })
         })
+
+        binding.eventImage.setOnClickListener {
+
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            photoFile = getPhotoFile(FILE_NAME)
+            val fileProvider = FileProvider.getUriForFile(
+                requireContext(),
+                "mobg5.g55315.project1.fileprovider",
+                photoFile
+            )
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
+
+            if (this.requireActivity().packageManager != null) {
+                getResult.launch(takePictureIntent)
+            } else {
+                Toast.makeText(requireContext(), "Unable to open camera", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
         binding.lifecycleOwner = this
 
@@ -79,6 +113,17 @@ class EventDetailFragment : Fragment() {
 
         return binding.root
     }
+    private fun getPhotoFile(fileName: String): File {
+        val storageDir = requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(fileName, ".jpg", storageDir)
+    }
 
+    private val getResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        val takenImage = BitmapFactory.decodeFile(photoFile.absolutePath)
+        event_image.setImageBitmap(takenImage)
+        meventDetailViewModel.uploadImage(photoFile.absolutePath)
+    }
 
 }

@@ -1,6 +1,8 @@
 package mobg5.g55315.project1.screens.main
 
 import android.app.Activity
+import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +17,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import mobg5.g55315.project1.R
 import mobg5.g55315.project1.databinding.ActivityMainBinding
+
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -106,7 +111,6 @@ class MainActivity : AppCompatActivity() {
 
         mViewModel.isSigningIn = true
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)

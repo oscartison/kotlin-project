@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="ConnectBox">
         <item name="android:background">@android:color/holo_green_light</item>
         <item name="android:textAlignment">center</item>
@@ -13,6 +14,16 @@
         <item name="android:padding">@dimen/small_padding</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="Widget.Project1.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.Project1.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
 

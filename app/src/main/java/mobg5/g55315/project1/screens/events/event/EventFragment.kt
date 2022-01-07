@@ -17,19 +17,42 @@ import kotlinx.android.synthetic.main.fragment_event.*
 import mobg5.g55315.project1.R
 import mobg5.g55315.project1.databinding.FragmentEventBinding
 import mobg5.g55315.project1.util.FirebaseUtil
+import mobg5.g55315.project1.util.LiveDataInternetConnections
 
 class EventFragment : Fragment() {
+    private lateinit var cld : LiveDataInternetConnections
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val binding: FragmentEventBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_event, container, false
         )
+        val application = requireNotNull(this.activity).application
+        cld =  LiveDataInternetConnections(application)
+        cld.observe(viewLifecycleOwner) { isConnected ->
+            if (isConnected) {
+                binding.imageView2.visibility = View.GONE
+                binding.eventList.visibility = View.VISIBLE
+                binding.floatingActionButton.visibility = View.VISIBLE
 
+                showEvents(binding)
+            } else {
+                binding.imageView2.visibility = View.VISIBLE
+                binding.eventList.visibility = View.GONE
+                binding.floatingActionButton.visibility = View.GONE
+
+
+            }
+        }
+        return binding.root
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun showEvents(binding: FragmentEventBinding) {
         val dataSource = requireNotNull(FirebaseUtil.getFirestore())
         val viewModelFactory = EventViewModelFactory(dataSource)
 
@@ -97,7 +120,6 @@ class EventFragment : Fragment() {
 
         val manager = LinearLayoutManager(context)
         binding.eventList.layoutManager = manager
-
-        return binding.root
     }
+
 }

@@ -19,7 +19,7 @@
             android:id="@+id/label_create"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_wide"
             android:text="@string/create"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:imeOptions="actionDone"
                 android:inputType="none"
-                tools:ignore="LabelFor"></AutoCompleteTextView>
+                tools:ignore="LabelFor"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -84,9 +84,9 @@
             android:id="@+id/editTextTextPersonName"
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/margin_wide"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/margin_wide"
             android:ems="10"
             android:hint="@string/name_string"
             android:imeOptions="actionDone"
@@ -101,7 +101,7 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/big_margin"
             android:onClick="@{() -> eventCreateViewModel.onAdd()}"
             android:text="@string/add"
             app:layout_constraintEnd_toEndOf="parent"
@@ -138,6 +138,7 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_wide"
             android:onClick="@{() -> eventCreateViewModel.onClose()}"
             android:text="@string/close"
             app:layout_constraintEnd_toEndOf="parent"
