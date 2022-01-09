@@ -1,6 +1,7 @@
 package mobg5.g55315.project1.screens.events.event
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.*
 import com.google.firebase.auth.FirebaseAuth
@@ -32,7 +33,6 @@ class EventViewModel(
 
     init {
         initializeEvents()
-        addUser()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -43,17 +43,19 @@ class EventViewModel(
     }
 
     fun addUser() {
-        var authenticaed_user = FirebaseAuth.getInstance().currentUser
-        var person = Person(
-            authenticaed_user?.uid,
-            authenticaed_user?.displayName, authenticaed_user?.email
+        val authenticated_user = FirebaseAuth.getInstance().currentUser
+        val person = Person(
+            authenticated_user?.uid,
+            authenticated_user?.displayName, authenticated_user?.email
         )
-        database.collection("users").whereEqualTo("id", authenticaed_user?.uid)
-            .get().addOnSuccessListener { documents ->
-                if (documents.isEmpty && person.name != null) {
-                    database.collection("users").add(person)
+
+        person.name?.let { Log.d("TISON", it) }
+            database.collection("users").whereEqualTo("id", person.id)
+                .get().addOnSuccessListener { documents ->
+                    if (documents.isEmpty) {
+                        database.collection("users").add(person)
+                    }
                 }
-            }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

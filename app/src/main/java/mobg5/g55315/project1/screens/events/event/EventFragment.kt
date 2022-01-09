@@ -64,6 +64,8 @@ class EventFragment : Fragment() {
 
         binding.eventViewModel = eventViewModel
 
+        eventViewModel.addUser()
+
         val adapter = EventAdapter(EventListener { eventId ->
             eventViewModel.onEventClicked(eventId)
         })

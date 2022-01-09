@@ -1,5 +1,6 @@
 package mobg5.g55315.project1.screens.teams.teamdetail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,6 +35,7 @@ class TeamDetailViewModel(
                 }
                 val personList: MutableList<Person> = mutableListOf()
                 val currentUser = FirebaseUtil.getAuth()?.uid
+
 
                 for (doc in value!!) {
                     val person = doc.toObject(Person::class.java)
