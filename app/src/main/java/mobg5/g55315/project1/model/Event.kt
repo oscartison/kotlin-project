@@ -4,6 +4,9 @@ package mobg5.g55315.project1.model
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.IgnoreExtraProperties
 
+/**
+ * represents an event in the online database
+ */
 @IgnoreExtraProperties
 class Event {
     @DocumentId

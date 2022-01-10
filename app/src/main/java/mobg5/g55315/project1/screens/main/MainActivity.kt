@@ -19,8 +19,9 @@ import mobg5.g55315.project1.R
 import mobg5.g55315.project1.databinding.ActivityMainBinding
 
 
-
-
+/**
+ * this activity will create the drwerlayout and check if a user is connected
+ */
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var mFirestore: FirebaseFirestore

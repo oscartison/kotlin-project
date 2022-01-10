@@ -16,6 +16,9 @@ import mobg5.g55315.project1.databinding.FragmentTeamBinding
 import mobg5.g55315.project1.util.FirebaseUtil
 import mobg5.g55315.project1.util.LiveDataInternetConnections
 
+/**
+ * this fragment will show a list of the teams of the current user
+ */
 class TeamFragment : Fragment() {
     private lateinit var cld : LiveDataInternetConnections
 

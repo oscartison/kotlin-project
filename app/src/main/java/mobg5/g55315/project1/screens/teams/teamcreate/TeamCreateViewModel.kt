@@ -44,7 +44,6 @@ class TeamCreateViewModel(
                     var category = doc.toObject(Category::class.java)
 
                     category.category?.let { categoryList.add(it)  }
-                    category.category?.let { Log.d("OSSCAR", it) }
                 }
                 categories.value = categoryList
             })

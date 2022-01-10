@@ -19,6 +19,9 @@ import mobg5.g55315.project1.databinding.FragmentEventBinding
 import mobg5.g55315.project1.util.FirebaseUtil
 import mobg5.g55315.project1.util.LiveDataInternetConnections
 
+/**
+ * This fragment will show a list of all the events where the current user will/was present
+ */
 class EventFragment : Fragment() {
     private lateinit var cld : LiveDataInternetConnections
 

@@ -27,6 +27,10 @@ import java.io.File
 private const val FILE_NAME = "event_photo"
 private lateinit var photoFile: File
 
+/**
+ * this fragment shows the details of a certain event and a list of participants of the team of
+ * this event.
+ */
 class EventDetailFragment : Fragment() {
 
     private lateinit var meventDetailViewModel: EventDetailViewModel

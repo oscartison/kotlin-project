@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import mobg5.g55315.project1.R
 
-
+/**
+ * This fragment shows information about the creator of the app
+ */
 class AboutFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

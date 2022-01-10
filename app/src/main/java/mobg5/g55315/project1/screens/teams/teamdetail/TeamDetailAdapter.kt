@@ -9,6 +9,9 @@ import mobg5.g55315.project1.databinding.ListItemMembersBinding
 import mobg5.g55315.project1.model.Person
 import mobg5.g55315.project1.model.Team
 
+/**
+ * this adapter will populate a recyclerview with a list of users for this team
+ */
 class TeamDetailAdapter(val clickListener: PersonListener, val team: Team) :
     ListAdapter<Person, TeamDetailAdapter.ViewHolder>(TeamDetailDiffCallback()) {
 

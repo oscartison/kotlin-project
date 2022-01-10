@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import mobg5.g55315.project1.databinding.ListItemEventBinding
 import mobg5.g55315.project1.model.Event
 
+/**
+ * This adapter will populate a recyclerview with a list of events
+ */
 class EventAdapter(val clickListener: EventListener) :
     ListAdapter<Event, EventAdapter.ViewHolder>(EventDiffCallback()) {
 

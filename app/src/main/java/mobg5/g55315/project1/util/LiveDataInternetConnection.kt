@@ -11,7 +11,9 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 
 /**
+ * this class will return a livedata object with the connection status of the app
  *  https://github.com/kimkimani/Internet-Connections-and-Capabilities-Checks-using-LiveData
+ *
  */
 class LiveDataInternetConnections(private val connectivityManager: ConnectivityManager):
     LiveData<Boolean>(){

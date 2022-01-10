@@ -14,6 +14,10 @@ import mobg5.g55315.project1.R
 import mobg5.g55315.project1.databinding.FragmentTeamDetailBinding
 import mobg5.g55315.project1.util.FirebaseUtil
 
+/**
+ * this fragment will show the details of a certain team. In this fragment the creator of a team
+ * will be able to add users to his team
+ */
 class TeamDetailFragment : Fragment() {
 
     override fun onCreateView(

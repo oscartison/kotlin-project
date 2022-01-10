@@ -5,6 +5,10 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 
+/**
+ * this class represents a user of the app. This is done because the list of users
+ * in firebase is not acccessible
+ */
 class Person {
     var id: String? = null
     var name: String? = null

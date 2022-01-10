@@ -17,6 +17,9 @@ import mobg5.g55315.project1.databinding.FragmentTeamCreationBinding
 import mobg5.g55315.project1.util.FirebaseUtil
 import java.util.*
 
+/**
+ * in this fragment a user will be able to create a team
+ */
 class TeamCreateFragment : Fragment() {
 
     override fun onCreateView(

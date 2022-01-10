@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import mobg5.g55315.project1.databinding.ListItemTeamBinding
 import mobg5.g55315.project1.model.Team
 
+/**
+ * this adapter will populate a recyclerview with a list of teams
+ */
 class TeamAdapter(val clickListener: TeamListener) :
     ListAdapter<Team, TeamAdapter.ViewHolder>(TeamDiffCallback()) {
 

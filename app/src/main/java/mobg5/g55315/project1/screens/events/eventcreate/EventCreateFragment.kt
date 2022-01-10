@@ -32,6 +32,9 @@ import java.util.*
 private const val FILE_NAME = "event_photo.jpg"
 private lateinit var photoFile: File
 
+/**
+ * this fragment will make it possible for a team capitain to create a game for his team
+ */
 class EventCreateFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

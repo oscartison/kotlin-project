@@ -10,7 +10,9 @@ import mobg5.g55315.project1.databinding.ListItemParticipantBinding
 import mobg5.g55315.project1.model.Event
 import mobg5.g55315.project1.model.Person
 
-
+/**
+ * this adapter will populate a recyclerview with the users of a team of a certain event
+ */
 class EventDetailAdapter(val clickListener: PersonListener, val event: Event) :
     ListAdapter<Person, EventDetailAdapter.ViewHolder>(EventDetailDiffCallback()) {
 
